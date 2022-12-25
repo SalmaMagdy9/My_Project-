@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-first-deployment
+spec:
+  selector:
+    matchLabels:
+      app: salma
+  replicas: 3
+  template:
+    metadata:
+      name: my-web-app
+      labels:
+        app: salma
+    spec:
+      containers:
+        - name: my-nginx-app
+          image: salomamagdy11/salma2-test1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
